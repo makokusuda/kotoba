@@ -25,3 +25,27 @@ If the test suite passes, you'll be ready to run the app in a local server:
 ```
 rails server
 ```
+
+Create migrate
+
+```
+rails generate model User name:string email:string
+```
+
+Run migration
+
+```
+rails db:migrate
+```
+
+Run migration on heroku
+
+```
+heroku run rails db:migrate
+```
+
+Create controller
+
+```
+rails generate controller Users new
+```

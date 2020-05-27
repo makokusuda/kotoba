@@ -1,0 +1,9 @@
+<% provide(:title, "List")%>
+<%= link_to "Home", root_path%>
+<%= link_to "New word", new_path%>
+<% @words.each do |word|%>
+<div>
+    <p><%= word.question %></p>
+    <p><%= word.answer %></p>
+</div>
+<% end %>
