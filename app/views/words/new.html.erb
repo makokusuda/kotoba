@@ -1,3 +1,17 @@
-<h1>Words#new</h1>
-<p>Find me in app/views/words/new.html.erb</p>
-<div>this is page for create new word<div>
+<% provide(:title, 'Add')%>
+<h1>Add new word</h1>
+
+<div>
+    <%= form_for(@word, url: new_path) do |f|%>
+        <%= f.label :question %>
+        <%= f.text_field :question %>
+
+        <%= f.label :answer %>
+        <%= f.text_field :answer %>
+
+        <%= f.label :memorize %>
+        <%= f.text_field :memorize %>
+
+        <%= f.submit "Create new word" %>
+    <% end %>
+</div>

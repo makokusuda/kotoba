@@ -10,6 +10,7 @@ class WordsController < ApplicationController
 
   # Page create new word
   def new
+    @word = Word.new
   end
 
   # Page edit existing word
@@ -22,6 +23,12 @@ class WordsController < ApplicationController
 
   # POST new word
   def create
+    @word = Word.new(word_params)
+    if @word.save
+      redirect_to index_path
+    else
+      render 'new'
+    end
   end
 
   # PATCH word
@@ -30,6 +37,10 @@ class WordsController < ApplicationController
 
   # DELETE word
   def destroy
+  end
+
+  def word_params
+    params.require(:word).permit(:question, :answer, :memorize)
   end
 
 end
