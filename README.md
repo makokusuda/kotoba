@@ -1,7 +1,7 @@
 # Kotoba
 
 This is wordbook app.  
-It is for learning language!
+It is for learning language!  
 ![image of toppage](./toppage.png)
 
 ## Getting started
