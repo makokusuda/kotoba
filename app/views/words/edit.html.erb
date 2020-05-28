@@ -1,18 +1,26 @@
 <% provide(:title, 'Edit')%>
-<h1>Edit word</h1>
-<%= link_to "Home", root_path%>
-<%= link_to "Back to List", index_path%>
-<div>
+<div class="header-link">
+<%= link_to "Word list", index_path%>
+<h1 class="page-title">Edit word</h1>
+<div class="word-form">
     <%= form_for(@word) do |f|%>
+    <div class="text-field">
         <%= f.label :question %>
         <%= f.text_field :question %>
+    </div>
 
+    <div class="text-field">
         <%= f.label :answer %>
         <%= f.text_field :answer %>
+    </div>
 
+    <div class="text-field">
         <%= f.label :memorize %>
         <%= f.text_field :memorize %>
+    </div>
 
+    <div class="text-field">
         <%= f.submit "Save change" %>
+    </div>
     <% end %>
 </div>

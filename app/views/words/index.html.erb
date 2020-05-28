@@ -1,16 +1,26 @@
 <% provide(:title, "List")%>
-<%= link_to "Home", root_path%>
-<%= link_to "New word", new_path%>
+<div class="header-link">
+<%= link_to "Add new word", new_path%>
+</div>
+<h1 class="page-title">All words</h1>
 <% @words.each do |word|%>
-<div>
-    <p><%= word.question %></p>
-    <p><%= word.answer %></p>
+<div class="word-card">
+<div class="word-content">
+    <div class="edit-card">
+        <%= link_to "delete", word, method: :delete, data: { confirm: "Are you sure?"}%>
+        <%= link_to "edit", edit_word_path(word)%>
     <% if word.memorize == 1%>
-        <p>memorized</p>
+        <div>
+            <%= link_to image_tag("correct.png", :width => '25', :height => '25', alt: "memorized")%>
+        </div>
     <% else %>
-        <p>not yet</p>
+        <div>
+            <%= link_to image_tag("incorrect.png", :width => '25', :height => '25', alt: "notyet")%>
+        </div>
     <% end %>
-    <%= link_to "delete", word, method: :delete, data: { confirm: "Are you sure?"}%>
-    <%= link_to "edit", edit_word_path(word)%>
+    </div>
+    <p class="word-qa">English: <%= word.question %></p>
+    <p class="word-qa">Tagalog: <%= word.answer %></p>
+    </div>
 </div>
 <% end %>
