@@ -15,6 +15,7 @@ class WordsController < ApplicationController
 
   # Page edit existing word
   def edit
+    @word = Word.find(params[:id])
   end
 
   # top page
@@ -33,10 +34,18 @@ class WordsController < ApplicationController
 
   # PATCH word
   def update
+    @word = Word.find(params[:id])
+    if @word.update_attributes(word_params)
+    redirect_to index_path
+    else
+      render 'edit'
+    end
   end
 
   # DELETE word
   def destroy
+    Word.find(params[:id]).destroy
+    redirect_to index_path
   end
 
   def word_params

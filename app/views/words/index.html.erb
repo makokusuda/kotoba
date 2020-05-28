@@ -5,5 +5,12 @@
 <div>
     <p><%= word.question %></p>
     <p><%= word.answer %></p>
+    <% if word.memorize == 1%>
+        <p>memorized</p>
+    <% else %>
+        <p>not yet</p>
+    <% end %>
+    <%= link_to "delete", word, method: :delete, data: { confirm: "Are you sure?"}%>
+    <%= link_to "edit", edit_word_path(word)%>
 </div>
 <% end %>
